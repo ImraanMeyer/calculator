@@ -1,0 +1,246 @@
+// Body Styles
+@font-face {
+    font-family: 'Poppins';
+    src: url(/fonts/Poppins.ttf); 
+} 
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins';
+    transition: all .2s;
+}
+
+body {
+    overflow: hidden;
+    background: $light;
+}
+
+.hide,
+.off {
+    height: 100px;
+    width: 100px;
+    border-radius: 50%;
+    border: none;
+    color: $light;
+    padding: 5px;
+    cursor: pointer;
+    font-size: 14px;
+    transition: all .2s;
+
+    &:focus {
+        outline: 0;
+    }
+}
+
+.hide {
+    position: absolute;
+    transform: translate(-50%, -50%);
+    background: $pink;
+    top: 30%;
+    left: 20%;
+    transition: all .2s;
+    box-shadow: $pinkOP 1px 2px 10px 1px;
+
+    &:hover {
+        box-shadow: 0 0 0 10px $pinkOP;
+    }
+    &:active {
+        box-shadow:  0 0 0 7px $pink;
+        background: $pinkOP;
+    }
+}
+
+.off {
+    position: absolute;
+    transform: translate(-50%, -50%);
+    top: 50%;
+    left: 20%;
+    transition: all .2s;
+    background: $turq;
+    box-shadow:  $turqOP 1px 2px 10px 1px;
+
+    &:hover {
+        box-shadow: 0 0 0 10px $turqOP;
+    }
+    &:active {
+        box-shadow:  0 0 0 7px $turq;
+        background: $turqOP;
+    }
+}
+
+.container {
+    width: 20%;
+    position: absolute;
+    transform: translate(-50%, -50%);
+    top: 50%;
+    left: 50%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    .calculator {
+        width: 320px;
+        height: fit-content;
+        background: $lightBG;
+        border-radius: 5px;
+        box-shadow: $grey 1px 2px 10px 1px;
+        .results {
+            height: 100px;
+            .history {
+                height: 20px;
+                margin: 0 20px;
+                padding-top: 20px;
+                text-align: right;
+                font-size: 15px;
+                color: $greyed;
+            }
+            .output {
+                text-align: right;
+                height: 60px;
+                margin: 20px 20px;
+                font-size: 30px;
+                overflow: hidden;
+            }
+        }
+    
+        .buttons {
+            height: 330px;
+
+            button {
+                display: flex;
+                justify-content: center;
+                user-select: none;
+                align-items: center;
+            }
+
+            .operator, .number {
+                width: 50px;
+                height: 50px;
+                border-radius: 50%;
+                margin: 15px;
+                font-size: 18px;
+                float: left;
+                border: none;
+                cursor: pointer;
+                transition: all .2s;
+                &:hover {
+                    box-shadow: 0 0 0 6px $lightOP ;
+                    background: $light;
+                }
+                &:active {
+                    font-size: 13px;
+                    background: $light; 
+                    box-shadow: 0 0 0 4px $lightOP;
+                    transition: all .2s;
+                }
+                &:focus {
+                    outline: 0;
+                }
+            }
+            button:nth-child(4),
+            button:nth-child(8),
+            button:nth-child(12),
+            button:nth-child(16) {
+                color: $light;
+            }
+
+            button:nth-child(4) {
+                background: $pink;
+                font-size: 22px;
+                &:hover {
+                    box-shadow: 0 0 0 6px $pinkOP ;
+                    background: $pink;
+                }
+                &:active {
+                    box-shadow: 0 0 0 4px $pinkOP;
+                    font-size: 13px;
+                }
+            }
+            button:nth-child(8) {
+                background: $blue;
+                font-size: 22px;
+                &:hover {
+                    box-shadow: 0 0 0 6px $blueOP ;
+                    background: $blue;
+                }
+                &:active {
+                    box-shadow: 0 0 0 4px $blueOP;
+                    font-size: 13px;
+                }
+            }
+            button:nth-child(12) {
+                background: $tan;
+                font-size: 22px;
+                &:hover {
+                    box-shadow: 0 0 0 6px $tanOP ;
+                    background: $tan;
+                }
+                &:active {
+                    box-shadow: 0 0 0 4px $tanOP;
+                    font-size: 13px;
+                }
+            }
+            button:nth-child(16) {
+                background: $green;
+                font-size: 22px;
+                &:hover {
+                    box-shadow: 0 0 0 6px $greenOP ;
+                    background: $green;
+                }
+                &:active {
+                    box-shadow: 0 0 0 4px $greenOP;
+                    font-size: 13px;
+                }
+            }
+
+            button:nth-child(13),
+            button:nth-child(15) {
+                background: none;
+            
+                &:hover {
+                    box-shadow: 0 0 0 6px $purpOP ;
+                    background: $purp;
+                }
+                &:active {
+                    font-size: 13px;
+                    background: $purp; 
+                    box-shadow: 0 0 0 4px $purpOP;
+                    transition: all .2s;
+                }
+            }
+
+            
+        }
+    }
+}
+
+.visual > div {
+    position: absolute;
+    height: 50px;
+    width: 50px;
+    border-radius: 50%;
+    z-index: 2;
+    display: flex;
+    justify-content: center;
+    font-size: 22px;
+    align-items: center;
+    color: $light;
+    user-select: none;
+}
+
+@keyframes jump {
+    0% {
+        bottom: -10%;
+        left: 20%
+    }
+    50% {
+        bottom: 50%;
+        left: 50%
+    }
+    100% {
+        bottom: -10%;
+        left: 80%
+    }
+}

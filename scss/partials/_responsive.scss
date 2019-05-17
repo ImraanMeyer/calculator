@@ -1,0 +1,39 @@
+// Tablet View 
+
+@media only screen and (max-width: 768px) {
+    .container {
+        width: 40%;
+    }
+}
+
+// Mobile View 
+@media only screen and (max-width: 425px) {
+    .toggles {
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        flex-direction: row;
+
+        .off, 
+        .hide {
+            position: static;
+            height: 50px;
+            margin: 10px auto;
+            border-radius: 1em;
+            width: fit-content;
+            transform: translate(0, 0);
+
+            &:hover {
+                box-shadow: none;
+            }
+            &:active {
+                box-shadow:  none  ;
+                background: $turqOP;
+            }
+            &:foucs {
+                user-select: none;
+                outline: 0;
+            }
+        }
+    }
+}
